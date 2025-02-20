@@ -13,7 +13,14 @@ class Home extends CI_Controller
 	}
 
 	// List all your items
-	public function index($offset = 0) {}
+	public function index()
+	{
+		$data = array(
+			'title' => 'Berada',
+			'isi' => 'frontend/v_home',
+		);
+		$this->load->view('frontend/v_wrapper', $data);
+	}
 
 	// Add a new item
 	public function add() {}
