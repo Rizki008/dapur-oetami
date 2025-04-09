@@ -57,7 +57,7 @@ class Menu extends CI_Controller
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
 				$this->menu->add($data);
-				redirect('backend/menu', 'refresh');
+				redirect('menu', 'refresh');
 			}
 		}
 
@@ -102,7 +102,7 @@ class Menu extends CI_Controller
 					'gambar' => $upload_data['uploads']['file_name'],
 				);
 				$this->menu->update($data);
-				redirect('backend/menu', 'refresh');
+				redirect('menu', 'refresh');
 			}
 			$data = array(
 				'id_menu' => $id_menu,
@@ -112,7 +112,7 @@ class Menu extends CI_Controller
 				'deskripsi' => $this->input->post('deskripsi'),
 			);
 			$this->menu->update($data);
-			redirect('backend/menu', 'refresh');
+			redirect('menu', 'refresh');
 		}
 
 		$data = array(
@@ -131,7 +131,7 @@ class Menu extends CI_Controller
 			'id_menu' => $id_menu,
 		);
 		$this->menu->delete($data);
-		redirect('backend/menu', 'refresh');
+		redirect('menu', 'refresh');
 	}
 }
 
