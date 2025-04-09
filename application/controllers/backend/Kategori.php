@@ -32,7 +32,7 @@ class Kategori extends CI_Controller
 			'nama_kategori' => $this->input->post('nama_kategori'),
 		);
 		$this->kategori->add($data);
-		redirect('backend/kategori', 'refresh');
+		redirect('kategori', 'refresh');
 	}
 
 	//Update one item
@@ -43,7 +43,7 @@ class Kategori extends CI_Controller
 			'nama_kategori' => $this->input->post('nama_kategori'),
 		);
 		$this->kategori->update($data);
-		redirect('backend/kategori', 'refresh');
+		redirect('kategori', 'refresh');
 	}
 
 	//Delete one item
@@ -53,7 +53,7 @@ class Kategori extends CI_Controller
 			'id_kategori' => $id_kategori,
 		);
 		$this->kategori->delete($data);
-		redirect('backend/kategori', 'refresh');
+		redirect('kategori', 'refresh');
 	}
 }
 
