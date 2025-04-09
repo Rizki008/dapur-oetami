@@ -10,7 +10,7 @@
 				<div class="card-body px-0 pb-2">
 					<br>
 					<div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-						<a href="<?= base_url('backend/menu/add') ?>" class="btn btn-primary">Tambah Menu</a>
+						<a href="<?= base_url('add-menu') ?>" class="btn btn-primary">Tambah Menu</a>
 					</div>
 					<div class="table-responsive p-0">
 
@@ -51,7 +51,7 @@
 											<span class="text-secondary text-xs font-weight-bold"><?= $data->deskripsi ?></span>
 										</td>
 										<td class="align-middle">
-											<a href="<?= base_url('backend/menu/update/' . $data->id_menu) ?>" class="btn btn-warning btn-sm" data-toggle="tooltip" data-original-title="Edit menu">
+											<a href="<?= base_url('update-menu/' . $data->id_menu) ?>" class="btn btn-warning btn-sm" data-toggle="tooltip" data-original-title="Edit menu">
 												Edit
 											</a> |
 											<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete<?= $data->id_menu ?>" data-original-title="Delete menu">
