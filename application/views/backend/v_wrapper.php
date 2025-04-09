@@ -1,5 +1,5 @@
 <?php
-
+$this->login->proteksi_halaman();
 require_once('v_head.php');
 require_once('v_nav.php');
 require_once('v_content.php');
