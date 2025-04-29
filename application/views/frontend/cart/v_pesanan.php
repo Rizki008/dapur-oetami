@@ -20,7 +20,7 @@
 						<th scope="col">No</th>
 						<th scope="col">No Order</th>
 						<th scope="col">Nama Menu</th>
-						<th scope="col">Harga</th>
+						<!-- <th scope="col">Harga</th> -->
 						<th scope="col">Quantity</th>
 						<th scope="col">Total</th>
 						<th scope="col">Status</th>
@@ -42,14 +42,14 @@
 							<td>
 								<p class="mb-0 mt-4"><?= $pesan->nama_menu ?></p>
 							</td>
-							<td>
+							<!-- <td>
 								<p class="mb-0 mt-4">Rp. <?= number_format($pesan->harga, 0) ?></p>
-							</td>
+							</td> -->
 							<td>
 								<p class="mb-0 mt-4"><?= $pesan->qty ?></p>
 							</td>
 							<td>
-								<p class="mb-0 mt-4">Rp. <?= number_format($pesan->harga * $pesan->qty, 0) ?></p>
+								<p class="mb-0 mt-4">Rp. <?= number_format($pesan->harga, 0) ?></p>
 							</td>
 							<td>
 								<?php if ($pesan->status_pesanan == 'Takeawey') { ?>
@@ -83,9 +83,16 @@
 									<a href="<?= base_url('pembayaran/' . $pesan->id_pesanan) ?>" class="btn btn-md rounded-circle bg-light border mt-4">
 										<i class="fa fa-dollar-sign text-warning"></i>
 									</a>
-								<?php } elseif ($pesan->status_order == 1 || $pesan->status_order == 2 || $pesan->status_order == 3 || $pesan->status_order == 4 && $pesan->status_bayar == 1) { ?>
+								<?php } elseif ($pesan->status_order == 1 || $pesan->status_order == 2 || $pesan->status_order == 4 && $pesan->status_bayar == 1) { ?>
 									<a href="<?= base_url('detail/' . $pesan->id_pesanan) ?>" class="btn btn-md rounded-circle bg-light border mt-4">
 										<i class="fa fa-pencil-alt text-warning"></i>
+									</a>
+								<?php } elseif ($pesan->status_order == 3) { ?>
+									<a href="<?= base_url('detail/' . $pesan->id_pesanan) ?>" class="btn btn-md rounded-circle bg-light border mt-4">
+										<i class="fa fa-pencil-alt text-warning"></i>
+									</a>
+									<a href="<?= base_url('backend/transaksi/selesai/' . $pesan->id_pesanan) ?>" class="btn btn-md rounded-circle bg-light border mt-4">
+										<i class="fa fa-pager text-success"></i>
 									</a>
 								<?php } ?>
 							</td>
