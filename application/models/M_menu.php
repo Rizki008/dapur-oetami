@@ -91,6 +91,8 @@ class M_menu extends CI_Model
 	public function pesanan()
 	{
 		$this->db->select('*');
+		$this->db->select_sum('qty');
+		$this->db->select_sum('harga');
 		$this->db->from('transaksi a');
 		$this->db->join('detail_pesanan b', 'a.no_order = a.no_order', 'left');
 		$this->db->join('menu_makanan c', 'b.id_menu = c.id_menu', 'left');
