@@ -25,6 +25,8 @@
 								<th scope="col">Harga</th>
 								<th scope="col">Quantity</th>
 								<th scope="col">Total</th>
+								<th scope="col">Kritik Dan Saran</th>
+								<th scope="col">Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -42,6 +44,14 @@
 									<td class="py-5">Rp. <?= number_format($item->harga, 0) ?></td>
 									<td class="py-5"><?= $item->qty ?></td>
 									<td class="py-5">Rp. <?= number_format($item->harga * $item->qty, 0) ?></td>
+									<?php if ($item->status_order == 4 && $item->status == 1) { ?>
+										<form action="<?= base_url('frontend/keranjang/kritik/' . $item->id_kritik) ?>" method="post">
+											<td class="py-5"> <input type="text" name="kritik" class="form-control"></td>
+											<td class="py-5"> <button type="submit" class="btn border-secondary  w-100 text-primary">Submit</button></td>
+										</form>
+									<?php } elseif ($item->status_order == 4 && $item->status == 2) { ?>
+										<td class="py-5"><?= $item->kritik ?></td>
+									<?php } ?>
 								</tr>
 							<?php } ?>
 							<tr>
