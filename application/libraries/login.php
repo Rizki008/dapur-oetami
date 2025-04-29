@@ -34,6 +34,7 @@ class login
 				redirect('admin/pemilik');
 			}
 		} elseif ($cek_user) {
+			$id_pelanggan = $cek_user->id_pelanggan;
 			$nama_pelanggan = $cek_user->nama_pelanggan;
 			$jenis_kel = $cek_user->jenis_kel;
 			$username = $cek_user->username;
@@ -43,6 +44,7 @@ class login
 			$point = $cek_user->point;
 			$level_member = $cek_user->level_member;
 
+			$this->ci->session->set_userdata('id_pelanggan', $id_pelanggan);
 			$this->ci->session->set_userdata('nama_pelanggan', $nama_pelanggan);
 			$this->ci->session->set_userdata('jenis_kel', $jenis_kel);
 			$this->ci->session->set_userdata('username', $username);
@@ -77,6 +79,7 @@ class login
 	}
 	public function logout_pelanggan()
 	{
+		$this->ci->session->unset_userdata('id_pelanggan');
 		$this->ci->session->unset_userdata('nama_pelanggan');
 		$this->ci->session->unset_userdata('jenis_kel');
 		$this->ci->session->unset_userdata('username');
