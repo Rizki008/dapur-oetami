@@ -88,6 +88,20 @@ class Keranjang extends CI_Controller
 				$this->db->insert('detail_pesanan', $data_rinci);
 			}
 
+			$k = 1;
+			foreach ($cart['cart'] as $key => $kritik) {
+				$data_kritik = array(
+					'no_order' => $this->input->post('no_order'),
+					'id_kritik' => $this->input->post('id_kritik' . $k++),
+					'id_pelanggan' => $this->session->userdata('id_pelanggan'),
+					'id_menu' => $kritik->id_menu,
+					'kritik' => '0',
+					'status' => 1,
+				);
+				$this->db->insert('kritik', $data_kritik);
+			}
+
+
 			// $this->cart->destroy();
 			foreach ($cart['cart'] as $key => $valuesa) {
 				$this->db->where('id_keranjang', $valuesa->id_keranjang);
@@ -167,6 +181,16 @@ class Keranjang extends CI_Controller
 		// echo $this->db->last_query();
 		// die();
 		$this->load->view('frontend/v_wrapper', $data, FALSE);
+	}
+
+	public function kritik($id_kritik)
+	{
+		$data = array(
+			'id_kritik' => $id_kritik,
+			'kritik' => $this->input->post('kritik'),
+		);
+		$this->menu->kritik($data);
+		redirect('pesanan', 'refresh');
 	}
 }
 
